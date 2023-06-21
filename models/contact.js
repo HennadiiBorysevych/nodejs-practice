@@ -26,6 +26,10 @@ const validationSchema = Joi.object({
   email: Joi.string().required(),
   phone: Joi.string().required(),
   favorite: Joi.boolean(),
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "user",
+  },
 });
 const favoriteSchema = Joi.object({
   favorite: Joi.boolean().required(),
@@ -35,7 +39,7 @@ const Contact = model("contact", contactSchema);
 
 const schemas = {
   validationSchema,
-  favoriteSchema
+  favoriteSchema,
 };
 
 module.exports = { Contact, schemas };
