@@ -17,6 +17,10 @@ const contactSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "user",
+  },
 });
 
 contactSchema.post("save", mongooseErrorHandler);
@@ -26,11 +30,8 @@ const validationSchema = Joi.object({
   email: Joi.string().required(),
   phone: Joi.string().required(),
   favorite: Joi.boolean(),
-  owner: {
-    type: Schema.Types.ObjectId,
-    ref: "user",
-  },
 });
+
 const favoriteSchema = Joi.object({
   favorite: Joi.boolean().required(),
 });
