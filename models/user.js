@@ -21,6 +21,7 @@ const userSchema = new Schema({
     type: String,
     default: "",
   },
+  avatarURL: String,
 });
 
 userSchema.post("save", mongooseErrorHandler);
