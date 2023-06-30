@@ -6,6 +6,8 @@ const current = require("./currentUser");
 const login = require("./login");
 const register = require("./register");
 const updateAvatar = require("./updateAvatar");
+const verifyEmail = require("./verify");
+const resendVerifacation = require("./resendVerifacation");
 
 module.exports = {
   register: TryCatchWrapper(register),
@@ -14,4 +16,6 @@ module.exports = {
   logout: TryCatchWrapper(logout),
   subscriptionChange: TryCatchWrapper(subscriptionChange),
   updateAvatar: TryCatchWrapper(updateAvatar),
+  verifyEmail: TryCatchWrapper(verifyEmail),
+  resendVerifacation: TryCatchWrapper(resendVerifacation),
 };
